@@ -53,10 +53,23 @@
 window.HS_KEYS_ENABLED = true;
 
 window.HS_KEYS = [
-  { key: 'admin',        tier: 'admin', label: 'Full admin access',              enabled: true },
-  { key: 'htmlstudio',   tier: 'dev',   label: 'Developer access',               enabled: true },
+  { key: 'ng_studio_dVA9Y3yQy6gRyhHualr1wTeGreKOjoQJ',        tier: 'admin', label: 'Full admin access',              enabled: true },
+  { key: 'ng_studio_KoKVL6ZMyCfsGRvFvT0S3ngAirGdtc4t',        tier: 'admin', label: 'Full admin access',              enabled: true },
+  { key: 'ng_studio_QBk8yaFeLomZfElX2XLc6oGjMBs54N61',        tier: 'admin', label: 'Full admin access',              enabled: true },
+  { key: 'ng_studio_eAodIkSV2Qb4xMLJgP61MMEIxywGJLSu',        tier: 'admin', label: 'Full admin access',              enabled: true },
+  { key: 'ng_studio_IZWzL1VJNO9lAQCZI27s6EfrsR4k4UrK',        tier: 'admin', label: 'Full admin access',              enabled: true },
+  { key: 'ng_studio_2mszDW52aU8RLYrw2QIxuhpLESQTjGSO',        tier: 'admin', label: 'Full admin access',              enabled: true },
+  { key: 'ng_studio_bPnJxXKwSU0MsUbNcq59iuUB0EsZDAshVJJAXSMW',        tier: 'admin', label: 'Full admin access',              enabled: true },
+  { key: '9ZP0-528Q-LHEW-9LBL-LBYY-8J61-EU32-FVS8',   tier: 'dev',   label: 'Developer access',               enabled: true },
+  { key: 'K0UV-5QLE-DE3V-4YZD-POP4-0UXJ-K8QY-QJQE',   tier: 'dev',   label: 'Developer access',               enabled: true },
+  { key: 'UQXK-IQYN-GARM-5VYT-91YS-2POO-U1BS-8A0H',   tier: 'dev',   label: 'Developer access',               enabled: true },
+  { key: 'JYCI-KYMH-3STK-ICLL-6YMS-UIUA-YFFU-2CQ2',   tier: 'dev',   label: 'Developer access',               enabled: true },
+  { key: 'IBRP-AK22-8SPQ-BFHJ-50YM-396L-AHYA-8LGN',   tier: 'dev',   label: 'Developer access',               enabled: true },
+  { key: 'htmlstudio2',   tier: 'dev',   label: 'Developer access',               enabled: true },
   { key: 'open-sesame',  tier: 'guest', label: 'Read-only access',               enabled: true },
   { key: 'studio-owner', username: 'owner', tier: 'owner', label: 'Owner — exclusive controls', enabled: true }
+  { key: 'Jack6187592411', username: 'Jacktheironman123', tier: 'owner', label: 'Owner — exclusive controls', enabled: true }
+  
 ];
 
 window.HS_KEYS_HELP = {
