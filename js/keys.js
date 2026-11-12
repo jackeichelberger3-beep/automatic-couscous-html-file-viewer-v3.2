@@ -68,8 +68,6 @@ window.HS_KEYS = [
   { key: 'htmlstudio2',   tier: 'dev',   label: 'Developer access',               enabled: true },
   { key: 'open-sesame',  tier: 'guest', label: 'Read-only access',               enabled: true },
   { key: 'studio-owner', username: 'owner', tier: 'owner', label: 'Owner — exclusive controls', enabled: true }
-  { key: 'Jack6187592411', username: 'Jacktheironman123', tier: 'owner', label: 'Owner — exclusive controls', enabled: true }
-  
 ];
 
 window.HS_KEYS_HELP = {
