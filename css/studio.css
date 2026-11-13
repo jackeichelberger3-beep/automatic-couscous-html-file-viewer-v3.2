@@ -14,6 +14,18 @@
   --hs-radiusSm: 10px;
   --hs-font: 'Google Sans', Roboto, Arial, sans-serif;
   --hs-mono: 'Roboto Mono', ui-monospace, Menlo, monospace;
+
+  /* Lock screen — fixed dark, GitHub-inspired palette (never theme-switched). */
+  --hs-gateBg: #0d1117;
+  --hs-gatePanel: #161b22;
+  --hs-gatePanel2: #1f2630;
+  --hs-gateBorder: #30363d;
+  --hs-gateText: #e6edf3;
+  --hs-gateDim: #8b949e;
+  --hs-gateGreen: #238636;
+  --hs-gateGreenHover: #2ea043;
+  --hs-gateLink: #58a6ff;
+  --hs-gateDanger: #f85149;
 }
 
 * { box-sizing: border-box; }
@@ -359,23 +371,105 @@ input[type='color'] { padding: 0; border: 0; width: 26px; height: 22px; backgrou
 #hs-welcome .badge { display: grid; place-items: center; width: 44px; height: 44px; border-radius: 999px; background: var(--hs-accent); color: var(--hs-accentText); font-size: 18px; }
 #hs-welcome .head { display: flex; gap: 14px; margin-bottom: 22px; }
 
-/* ---------- full-screen key lock ---------- */
+/* ---------- full-screen key lock — dark GitHub-style sign-in ---------- */
 #hs-keygate {
- position: fixed; inset: 0; z-index: 10000;
- display: grid; place-items: center; padding: 24px;
- background: var(--hs-bg);
+  position: fixed; inset: 0; z-index: 10000; overflow: auto;
+  background: var(--hs-gateBg); color: var(--hs-gateText);
 }
+#hs-keygate .gate-glow {
+  position: absolute; inset: 0; pointer-events: none;
+  background:
+    radial-gradient(900px 520px at 12% 4%, rgba(35, 134, 54, .18), transparent 62%),
+    radial-gradient(760px 420px at 90% 94%, rgba(88, 166, 255, .12), transparent 60%);
+}
+#hs-keygate .gate-brand {
+  position: absolute; top: 0; left: 0; z-index: 2;
+  display: flex; align-items: center; gap: 10px; padding: 20px 24px;
+}
+#hs-keygate .gate-brand .mark {
+  display: grid; place-items: center; width: 30px; height: 30px; border-radius: 9px;
+  background: var(--hs-gateGreen); color: #fff; font-family: var(--hs-mono); font-size: 10px;
+}
+#hs-keygate .gate-brand .name { font-size: 14px; font-weight: 500; color: var(--hs-gateText); }
+#hs-keygate .gate-brand .name b { font-weight: 600; }
+#hs-keygate .gate-brand .tag {
+  margin-left: 4px; padding: 2px 8px; border: 1px solid var(--hs-gateBorder); border-radius: 999px;
+  font-size: 10px; letter-spacing: .08em; text-transform: uppercase; color: var(--hs-gateDim);
+}
+#hs-keygate .gate-layout {
+  position: relative; display: grid; gap: 40px; align-items: center;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 430px);
+  width: 100%; max-width: 1120px; min-height: 100%; margin: 0 auto; padding: 96px 28px 56px;
+}
+#hs-keygate .gate-hero .eyebrow { margin: 0 0 10px; font-size: 11px; letter-spacing: .18em; text-transform: uppercase; color: var(--hs-gateGreen); }
+#hs-keygate .gate-hero h1 { margin: 0; font-size: 44px; line-height: 1.06; font-weight: 600; letter-spacing: -.02em; color: var(--hs-gateText); }
+#hs-keygate .gate-hero p.body { margin: 16px 0 0; max-width: 400px; font-size: 13.5px; line-height: 1.65; color: var(--hs-gateDim); }
+#hs-keygate .gate-socials { display: flex; gap: 10px; margin-top: 24px; }
+#hs-keygate .gate-socials span {
+  display: grid; place-items: center; width: 36px; height: 36px; border-radius: 999px;
+  border: 1px solid var(--hs-gateBorder); background: var(--hs-gatePanel);
+  color: var(--hs-gateDim); font-size: 13px;
+}
+#hs-keygate .gate-col { width: 100%; }
 #hs-keygate .card {
- width: 100%; max-width: 560px; padding: 32px;
- background: var(--hs-panel); border: 1px solid var(--hs-border);
- border-radius: calc(var(--hs-radius) + 8px);
- box-shadow: 0 30px 90px rgba(0, 0, 0, .6);
+  width: 100%; max-width: none; padding: 26px;
+  background: var(--hs-gatePanel); border: 1px solid var(--hs-gateBorder);
+  border-radius: 16px; box-shadow: 0 24px 70px rgba(0, 0, 0, .55);
 }
 #hs-keygate .card.shake { animation: hs-shake .5s; }
-#hs-keygate h2 { margin: 0 0 6px; font-size: 20px; font-weight: 500; }
-#hs-keygate .badge { display: grid; place-items: center; width: 48px; height: 48px; border-radius: 999px; background: var(--hs-accent); color: var(--hs-accentText); font-size: 20px; }
-#hs-keygate .head { display: flex; gap: 14px; margin-bottom: 22px; }
-#hs-keygate .hs-btn.primary { width: 100%; }
+#hs-keygate .card h2 { margin: 0; font-size: 23px; font-weight: 600; letter-spacing: -.01em; }
+#hs-keygate .card .sub { margin: 5px 0 18px; font-size: 12.5px; color: var(--hs-gateDim); }
+#hs-keygate .hs-label { display: block; margin: 0 0 6px; font-size: 12px; font-weight: 500; color: var(--hs-gateText); }
+#hs-keygate .hs-label.gap { margin-top: 14px; }
+#hs-keygate .field {
+  display: flex; align-items: center; gap: 8px; height: 40px; padding: 0 11px;
+  background: var(--hs-gateBg); border: 1px solid var(--hs-gateBorder); border-radius: 9px;
+}
+#hs-keygate .field:focus-within { border-color: var(--hs-gateGreen); box-shadow: 0 0 0 3px rgba(35, 134, 54, .22); }
+#hs-keygate .field .ico { flex: none; font-size: 12px; color: var(--hs-gateDim); }
+#hs-keygate .field input {
+  flex: 1; min-width: 0; height: 100%; padding: 0; border: 0; outline: none;
+  background: transparent; color: var(--hs-gateText); font-size: 13.5px;
+}
+#hs-keygate .field input::placeholder { color: #6e7681; }
+#hs-keygate .field .link { flex: none; }
+#hs-keygate .cta {
+  display: flex; align-items: center; justify-content: center; gap: 8px; width: 100%; height: 42px;
+  margin-top: 18px; border: 0; border-radius: 9px;
+  background: var(--hs-gateGreen); color: #fff; font-size: 13.5px; font-weight: 600;
+}
+#hs-keygate .cta:hover { background: var(--hs-gateGreenHover); }
+#hs-keygate .cta[disabled] { opacity: .45; cursor: not-allowed; }
+#hs-keygate .link { padding: 0; border: 0; background: none; color: var(--hs-gateLink); font-size: 12.5px; }
+#hs-keygate .row-between { display: flex; align-items: center; justify-content: space-between; margin-top: 12px; }
+#hs-keygate .row-between .hint { font-size: 11px; color: var(--hs-gateDim); }
+#hs-keygate .fineprint { margin: 16px 0 0; text-align: center; font-size: 11px; line-height: 1.6; color: var(--hs-gateDim); }
+#hs-keygate .help { margin-top: 12px; padding-top: 12px; border-top: 1px solid var(--hs-gateBorder); }
+#hs-keygate .help p { margin: 0 0 6px; font-size: 11.5px; line-height: 1.6; color: var(--hs-gateDim); }
+#hs-keygate .message { margin-top: 12px; font-size: 12px; }
+#hs-keygate .message.ok { color: var(--hs-gateGreen); }
+#hs-keygate .message.bad { color: var(--hs-gateDanger); }
+
+/* lock screen — live diagnostics panel beneath the form */
+#hs-keygate .gate-errors {
+  display: flex; flex-direction: column; min-width: 0; max-height: 210px; margin-top: 14px;
+  background: var(--hs-gatePanel); border: 1px solid var(--hs-gateBorder);
+  border-radius: 14px; overflow: hidden;
+}
+#hs-keygate .gate-errors .head {
+  display: flex; align-items: center; gap: 8px; margin: 0; padding: 10px 14px;
+  border-bottom: 1px solid var(--hs-gateBorder);
+}
+#hs-keygate .gate-errors .head strong { flex: 1; font-size: 12.5px; font-weight: 500; }
+#hs-keygate .gate-errors .head .hs-btn { font-size: 11px; padding: 4px 10px; }
+#hs-keygate .gate-errors .chip { background: var(--hs-gatePanel2); color: var(--hs-gateDim); }
+#hs-keygate .gate-errors .list { overflow: auto; padding: 8px 14px; }
+#hs-keygate .gate-errors .row { padding: 8px 0; border-bottom: 1px solid var(--hs-gateBorder); }
+#hs-keygate .gate-errors .row:last-child { border-bottom: 0; }
+#hs-keygate .gate-errors .tag { font-size: 10px; letter-spacing: .06em; text-transform: uppercase; color: var(--hs-gateDanger); }
+#hs-keygate .gate-errors .time { margin-left: 8px; font-size: 10px; color: var(--hs-gateDim); }
+#hs-keygate .gate-errors pre { margin: 4px 0 0; font-family: var(--hs-mono); font-size: 11px; line-height: 1.45; white-space: pre-wrap; word-break: break-word; color: var(--hs-gateText); }
+#hs-keygate .gate-errors .hs-msg { margin: 6px 0; font-size: 11.5px; }
 @keyframes hs-shake {
   0%, 100% { transform: translateX(0); }
   15% { transform: translateX(-10px); }
@@ -397,6 +491,13 @@ input[type='color'] { padding: 0; border: 0; width: 26px; height: 22px; backgrou
   font-size: 13px;
 }
 #hs-drop.show { display: grid; }
+
+@media (max-width: 900px) {
+  #hs-keygate .gate-layout { grid-template-columns: minmax(0, 1fr); gap: 26px; padding-top: 88px; }
+  #hs-keygate .gate-hero h1 { font-size: 34px; }
+  #hs-keygate .gate-socials { margin-top: 18px; }
+  #hs-keygate .gate-errors { max-height: 180px; }
+}
 
 @media (max-width: 760px) {
   #hs-top { gap: 2px; }
